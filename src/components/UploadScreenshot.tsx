@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { UploadCloud, X } from "lucide-react";
 
 interface UploadScreenshotProps {
@@ -39,10 +40,12 @@ export function UploadScreenshot({
       
       {previewUrl ? (
         <div className="relative w-full h-32 flex items-center justify-center rounded overflow-hidden">
-          <img
+          <Image
             src={previewUrl}
             alt="Trade screenshot"
             className="max-h-full max-w-full object-contain"
+            width={300}
+            height={128}
           />
           <button
             type="button"

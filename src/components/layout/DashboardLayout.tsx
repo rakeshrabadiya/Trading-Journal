@@ -7,7 +7,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { Navbar } from "@/components/Navbar";
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const fetchTrades = useTradeStore((state) => state.fetchTrades);
 
   useEffect(() => {
