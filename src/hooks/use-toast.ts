@@ -24,7 +24,7 @@ const actionTypes = {
   DISMISS_TOAST: "DISMISS_TOAST",
   REMOVE_TOAST: "REMOVE_TOAST",
 } as const
-// @ts-ignore - actionTypes is used for type derivation in ActionType
+// @ts-expect-error - actionTypes is used for type derivation in ActionType
 
 let count = 0
 
