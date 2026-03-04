@@ -115,7 +115,7 @@ export default function SettingsPage() {
           title: "Import Successful",
           description: `Successfully imported ${importedTrades.length} trades.`,
         });
-      } catch (_error) {
+      } catch {
         toast({
           title: "Import Failed",
           description: "Something went wrong parsing the CSV. Please ensure it matches the export format.",
