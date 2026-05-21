@@ -1,14 +1,4 @@
-type CapacitorConfig = {
-  appId: string;
-  appName: string;
-  webDir: string;
-  server: {
-    url: string;
-    cleartext: boolean;
-  };
-};
-
-const config: CapacitorConfig = {
+const config = {
   appId: "com.tradingjournal.app",
   appName: "Trading Journal",
   webDir: "out",
