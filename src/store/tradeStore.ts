@@ -10,6 +10,7 @@ interface TradeState {
   addTrade: (trade: Trade) => Promise<void>;
   deleteTrade: (id: string) => Promise<void>;
   importTrades: (trades: Trade[]) => Promise<void>; // Mock for now if we want batch import
+  resetAll: () => void;
   getStats: () => ReturnType<typeof calculateStats>;
 }
 
@@ -71,7 +72,7 @@ export const useTradeStore = create<TradeState>()((set, get) => ({
     // For now, we will do sequential requests (not ideal for huge files, but works for PoC)
     set({ isLoading: true });
     try {
-      const successfulTrades = [];
+      const successfulTrades: Trade[] = [];
       for (const trade of importedTrades) {
          const response = await fetch("/api/trades", {
            method: "POST",
@@ -90,5 +91,6 @@ export const useTradeStore = create<TradeState>()((set, get) => ({
       set({ isLoading: false });
     }
   },
+  resetAll: () => set({ trades: [] }),
   getStats: () => calculateStats(get().trades),
 }));
