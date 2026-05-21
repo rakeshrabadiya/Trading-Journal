@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/components/AuthProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+});
 
 export const metadata: Metadata = {
   title: "Trading Journal",
@@ -18,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
-      <body className={`${inter.className} bg-background font-sans text-foreground antialiased`}>
+      <body className={`${geistSans.className} bg-background font-sans text-foreground antialiased`}>
         <AuthProvider>
           {children}
           <Toaster />
