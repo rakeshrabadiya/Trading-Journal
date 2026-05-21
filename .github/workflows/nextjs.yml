@@ -76,6 +76,7 @@ jobs:
           GITHUB_PAGES: "true"
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Restore server files after Pages export build
+        if: ${{ always() }}
         run: |
           if [ -d "$RUNNER_TEMP/trading-journal-api" ]; then mv "$RUNNER_TEMP/trading-journal-api" src/app/api; fi
           if [ -f "$RUNNER_TEMP/trading-journal-middleware.ts" ]; then mv "$RUNNER_TEMP/trading-journal-middleware.ts" src/middleware.ts; fi
