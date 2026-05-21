@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
-const isGithubPages =
-  process.env.GITHUB_ACTIONS === "true" &&
-  process.env.GITHUB_REPOSITORY === "rakeshrabadiya/Trading-Journal";
+const isGithubPages = process.env.GITHUB_PAGES === "true";
 
 const nextConfig = isGithubPages
   ? {

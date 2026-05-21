@@ -1,4 +1,12 @@
-import type { CapacitorConfig } from "@capacitor/cli";
+type CapacitorConfig = {
+  appId: string;
+  appName: string;
+  webDir: string;
+  server: {
+    url: string;
+    cleartext: boolean;
+  };
+};
 
 const config: CapacitorConfig = {
   appId: "com.tradingjournal.app",

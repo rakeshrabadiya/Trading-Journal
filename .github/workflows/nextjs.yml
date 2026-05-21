@@ -72,6 +72,8 @@ jobs:
           if [ -d src/app/api ]; then mv src/app/api /tmp/trading-journal-api; fi
           if [ -f src/middleware.ts ]; then mv src/middleware.ts /tmp/trading-journal-middleware.ts; fi
       - name: Build with Next.js
+        env:
+          GITHUB_PAGES: "true"
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
