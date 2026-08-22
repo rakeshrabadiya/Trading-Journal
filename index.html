@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Journal</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Trading Journal</h1>
+        <p>Track trades, performance, and your edge.</p>
+      </header>
+
+      <section class="card">
+        <h2>Add Trade</h2>
+        <form id="trade-form" class="grid">
+          <label>
+            Pair
+            <input id="pair" name="pair" type="text" placeholder="BTC/USD" required />
+          </label>
+          <label>
+            Type
+            <select id="type" name="type" required>
+              <option value="BUY">BUY (Long)</option>
+              <option value="SELL">SELL (Short)</option>
+            </select>
+          </label>
+          <label>
+            Entry Price
+            <input id="entryPrice" name="entryPrice" type="number" step="any" required />
+          </label>
+          <label>
+            Exit Price
+            <input id="exitPrice" name="exitPrice" type="number" step="any" required />
+          </label>
+          <label>
+            Stop Loss (Optional)
+            <input id="stopLoss" name="stopLoss" type="number" step="any" />
+          </label>
+          <label>
+            Take Profit (Optional)
+            <input id="takeProfit" name="takeProfit" type="number" step="any" />
+          </label>
+          <label>
+            Position Size
+            <input id="size" name="size" type="number" step="any" required />
+          </label>
+          <label>
+            Strategy Tag
+            <input id="strategyTag" name="strategyTag" type="text" placeholder="Breakout" />
+          </label>
+          <label class="full">
+            Trade Date &amp; Time
+            <input id="date" name="date" type="datetime-local" required />
+          </label>
+          <label class="full">
+            Notes
+            <textarea id="notes" name="notes" rows="3" placeholder="Why did you take this trade?"></textarea>
+          </label>
+          <button class="full" type="submit">Save Trade</button>
+        </form>
+      </section>
+
+      <section class="stats" id="stats"></section>
+
+      <section class="card">
+        <h2>Equity Curve</h2>
+        <canvas id="equity-chart" width="1200" height="300" aria-label="Equity curve"></canvas>
+      </section>
+
+      <section class="card">
+        <div class="table-controls">
+          <h2>Trade History</h2>
+          <input id="search" type="text" placeholder="Search pair..." />
+          <select id="strategy-filter"></select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Pair</th>
+                <th>Type</th>
+                <th>Entry</th>
+                <th>Exit</th>
+                <th>PnL</th>
+                <th>RR</th>
+                <th>Strategy</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="trade-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
